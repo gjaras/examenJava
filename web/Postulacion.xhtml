@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+     xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <meta charset="utf-8"></meta>
+            <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <title>Postulacion</title>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"></link>
+            <link rel="stylesheet" href="/resources/demos/style.css"></link>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+        </script>
+        <script>
+        function esto() {
+        document.getElementById("hijos").disabled = false;}
+</script>
+        
+    </h:head>
+    <h:body>
+        Postulacion
+        <h:form>
+            Rut :<h:inputText value="#{postulacionBean.postulanteRut1}"></h:inputText>-<h:inputText size="2" value="#{postulacionBean.postulanteRut2}"></h:inputText><br/>
+            Nombre :<h:inputText value="#{postulacionBean.postulanteNombre}"></h:inputText><br/>
+            Apellido Paterno :<h:inputText value="#{postulacionBean.postulanteApepa}"></h:inputText><br/>
+            Apellido Materno :<h:inputText value="#{postulacionBean.postulanteApema}"></h:inputText><br/>
+            Fecha de Nacimiento: <input type="text" id="datepicker"></input>
+            <br/>
+            Sexo
+            <input type="radio" name="gender" value="#{postulacionBean.postulanteSexo=M}"> M</input><br/>
+                <input type="radio" name="gender" value="#{postulacionBean.postulanteSexo=F}"> F</input><br/>
+            Estado Civil: 
+            <h:selectOneMenu id="selMenu2">
+                <f:selectItems value="#{postulacionBean.listEstadoCivil()}"/>
+            </h:selectOneMenu>
+            <br/>
+            Hijos : <input type="checkbox" name="vehicle" value="hij" onclick="esto()" > Si</input> 
+            <input  type="number" id="hijos" min="0" max="15" step="1" value="hijos" disabled="true"/> <br/>
+            Telefono :<h:inputText value="#{postulacionBean.postulanteTelefono}"></h:inputText><br/>
+            Email :<h:inputText value="#{postulacionBean.postulanteEmail}"  a:placeholder="Ej:tucorreo@dominio.com" ></h:inputText><br/>
+            
+            Direccion :<h:inputText value="#{postulacionBean.postulanteDireccion}"></h:inputText><br/>
+            Comuna:
+            <h:selectOneMenu id="selMenu">
+                <f:selectItems value="#{postulacionBean.listComuna()}"/>
+            </h:selectOneMenu>
+            <br/>
+            
+            
+            Educacion: 
+            <h:selectOneMenu id="selMenu3">
+                <f:selectItems value="#{postulacionBean.listEducacione()}"/>
+            </h:selectOneMenu>
+            <br/>
+            Renta: 
+            <h:selectOneMenu id="selMenu4">
+                <f:selectItems value="#{postulacionBean.listVenta()}"/>
+            </h:selectOneMenu>
+            <br/>   
+            Sueldo Liquido :<h:inputText value="#{postulacionBean.postulanteSueldo}"></h:inputText><br/>
+            <br/>
+            Padece enfermedad enfermedad cronica: <input type="checkbox" name="vehicle" value="#{postulacionBean.postulanteEnfermedad}"> Si</input> 
+        
+        <h:commandLink value="Grabar" action="#{postulacionBean.addPostulante()}"></h:commandLink>
+        </h:form>
+        <h:link outcome="/inicio" value="Menu Principal"></h:link>
+    </h:body>
+</html>

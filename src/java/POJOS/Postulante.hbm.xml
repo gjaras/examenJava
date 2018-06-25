@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 23, 2018 8:08:38 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="POJOS.Postulante" table="postulante" catalog="dbpostulacion" optimistic-lock="version">
+        <id name="postulanteRut" type="string">
+            <column name="postulante_rut" length="12" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="comuna" class="POJOS.Comuna" fetch="select">
+            <column name="comuna_comuna_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="educacione" class="POJOS.Educacione" fetch="select">
+            <column name="educacione_educacione_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="estadocivil" class="POJOS.Estadocivil" fetch="select">
+            <column name="estadocivil_estadocivil_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="venta" class="POJOS.Venta" fetch="select">
+            <column name="venta_venta_id" not-null="true" />
+        </many-to-one>
+        <property name="postulanteNombre" type="string">
+            <column name="postulante_nombre" length="25" />
+        </property>
+        <property name="postulanteApepa" type="string">
+            <column name="postulante_apepa" length="25" not-null="true" />
+        </property>
+        <property name="postulanteApema" type="string">
+            <column name="postulante_apema" length="25" not-null="true" />
+        </property>
+        <property name="postulanteFecnac" type="date">
+            <column name="postulante_fecnac" length="10" not-null="true" />
+        </property>
+        <property name="postulanteSexo" type="char">
+            <column name="postulante_sexo" length="1" not-null="true" />
+        </property>
+        <property name="postulanteHijos" type="int">
+            <column name="postulante_hijos" not-null="true" />
+        </property>
+        <property name="postulanteTelefono" type="int">
+            <column name="postulante_telefono" not-null="true" />
+        </property>
+        <property name="postulanteEmail" type="string">
+            <column name="postulante_email" length="30" not-null="true" />
+        </property>
+        <property name="postulanteDireccion" type="string">
+            <column name="postulante_direccion" length="50" not-null="true" />
+        </property>
+        <property name="postulanteSueldo" type="int">
+            <column name="postulante_sueldo" not-null="true" />
+        </property>
+        <property name="postulanteEnfermedad" type="char">
+            <column name="postulante_enfermedad" length="1" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
