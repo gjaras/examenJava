@@ -17,6 +17,12 @@ public class Usuario  implements java.io.Serializable {
     public Usuario() {
     }
 
+      public Usuario( String usuarioNombre, String usuarioPass) {
+       
+       this.usuarioNombre = usuarioNombre;
+       this.usuarioPass = usuarioPass;
+       
+    }
     public Usuario(int usuarioId, String usuarioNombre, String usuarioPass, char usuarioRoladm) {
        this.usuarioId = usuarioId;
        this.usuarioNombre = usuarioNombre;
